@@ -1,0 +1,62 @@
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="text" class="form-control" id="email" ng-model="email1">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Name:</label>
+    <input type="text" class="form-control" id="pwd" ng-model="name">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button>
+</form>
+
+<div class="row" style="margin-left:20px;">
+ <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in alluser track by $index" >
+        <td>{{user._id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td><i class="glyphicon glyphicon-trash" ng-click="deleteuser(user)"></i> <i class="glyphicon glyphicon-pencil" ng-click="edituser(user)" data-toggle="modal" data-target="#myModal"></i> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+    <label for="email">New Email</label>
+    <input type="text" class="form-control" id="email" ng-model="newemail">
+  </div>
+  <div class="form-group">
+    <label for="pwd">New Name:</label>
+    <input type="text" class="form-control" id="pwd" ng-model="newusername">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="update(existing)">Submit</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
